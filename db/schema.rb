@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_18_173502) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_18_173656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,23 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_173502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "unit_price"
+    t.integer "item_cost"
+    t.integer "quantity"
+    t.boolean "in_stock"
+    t.bigint "product_category_id", null: false
+    t.bigint "discount_id", null: false
+    t.bigint "vendor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_items_on_discount_id"
+    t.index ["product_category_id"], name: "index_items_on_product_category_id"
+    t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -63,4 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_173502) do
   end
 
   add_foreign_key "employees", "users"
+  add_foreign_key "items", "discounts"
+  add_foreign_key "items", "product_categories"
+  add_foreign_key "items", "vendors"
 end

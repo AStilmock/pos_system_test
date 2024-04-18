@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_18_181129) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_18_181306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_181129) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.datetime "date_time"
+    t.bigint "invoice_id", null: false
+    t.bigint "discount_id", null: false
+    t.integer "sub_total_sale_price"
+    t.integer "shipping"
+    t.integer "taxes"
+    t.integer "total_sale_price"
+    t.integer "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_sales_on_discount_id"
+    t.index ["invoice_id"], name: "index_sales_on_invoice_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -102,4 +117,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_181129) do
   add_foreign_key "items", "discounts"
   add_foreign_key "items", "product_categories"
   add_foreign_key "items", "vendors"
+  add_foreign_key "sales", "discounts"
+  add_foreign_key "sales", "invoices"
 end

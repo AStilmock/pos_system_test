@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_18_173656) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_18_180947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_173656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.datetime "date_time"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.integer "quantity"
+    t.bigint "discount_id", null: false
+    t.integer "sub_total_sale_price"
+    t.integer "final_sale_price"
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_invoices_on_discount_id"
+    t.index ["item_id"], name: "index_invoices_on_item_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -80,6 +96,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_173656) do
   end
 
   add_foreign_key "employees", "users"
+  add_foreign_key "invoices", "discounts"
+  add_foreign_key "invoices", "items"
+  add_foreign_key "invoices", "users"
   add_foreign_key "items", "discounts"
   add_foreign_key "items", "product_categories"
   add_foreign_key "items", "vendors"

@@ -94,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_040307) do
     t.datetime "date_time"
     t.bigint "invoice_id", null: false
     t.bigint "discount_id", null: false
+    t.bigint "user_id", null: false
     t.integer "sub_total_sale_price"
     t.integer "shipping"
     t.integer "taxes"
@@ -103,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_040307) do
     t.datetime "updated_at", null: false
     t.index ["discount_id"], name: "index_sales_on_discount_id"
     t.index ["invoice_id"], name: "index_sales_on_invoice_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -137,4 +139,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_040307) do
   add_foreign_key "purchase_orders", "vendors"
   add_foreign_key "sales", "discounts"
   add_foreign_key "sales", "invoices"
+  add_foreign_key "sales", "users"
 end

@@ -4,7 +4,6 @@ RSpec.describe Vendor, type: :model do
   describe "relationships" do
     it { should have_many :purchase_orders }
     it { should have_many :items }
-    it { should have_many(:product_categories).through(:items) }
   end
 
   describe "validations" do

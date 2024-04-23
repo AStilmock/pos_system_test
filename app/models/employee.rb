@@ -5,4 +5,6 @@ class Employee < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   validates :phone, presence: true
+
+  enum category: [:employee, :manager, :admin, :owner]
 end

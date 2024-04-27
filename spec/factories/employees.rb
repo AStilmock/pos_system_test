@@ -4,6 +4,6 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     address { Faker::Address.full_address }
     phone { Faker::PhoneNumber.phone_number }
-    user_id { nil }
+    user_id { generate :user_id }
   end
 end

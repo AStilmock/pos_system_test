@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :purchase_order do
-    description { "MyString" }
-    date_time { "2024-04-18 22:02:48" }
-    vendor { nil }
-    item { nil }
-    quantity { 1 }
-    complete { 1 }
-    user { nil }
+    description { Faker::Fantasy::Tolkien.location }
+    date_time { Date.today }
+    vendor_id { generate :vendor_id }
+    item_id { generate :item_id }
+    quantity { 10 }
+    complete { 0 }
+    user_id { generate :user_id }
   end
 end

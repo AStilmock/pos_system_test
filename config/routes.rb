@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/", to: "landing#index"
+  namespace :user do
+    resources :shopping, only: [:index]
+  end
   resources :shopping, only: [:index]
   resources :about, only: [:index]
-  resources :login, only: [:index]
+  resources :login, only: [:index, :new, :create]
 end

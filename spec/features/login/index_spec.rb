@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Website Login Page', type: :feature do
   describe 'login landing page' do
     before :each do
-      @user = User.create(username: "test", email: "fakeemail@email.com", password: "test", permission: 0, discount_level: 0)
+      @user = User.create!(username: "test", email: "fakeemail@email.com", password: "test", permission: 0, discount_level: 0)
       visit login_index_path
     end
+    
     it 'displays navbar' do
       expect(page).to have_link("Home")
       expect(page).to have_link("Shop")

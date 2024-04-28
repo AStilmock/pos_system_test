@@ -8,6 +8,6 @@ class LoginController < ApplicationController
   end
 
   def create
-
+    redirect_to user_shopping_index_path
   end
 end

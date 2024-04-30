@@ -1,12 +1,13 @@
 <%= form_with url: user_shopping_path, method: :get, local: true do |f| %>
-  <%= f.label  :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label  :password %>
-  <%= f.text_field :password %>
-
-  <%= f.label  :confirm_password %>
-  <%= f.text_field :confirm_password %>
-
-  <%= f.submit "Login" %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login" %>
+  </div>
 <% end %>

@@ -1,7 +1,8 @@
 class User::ShoppingController < ApplicationController
   def index
-    @user = User.find_by_username(params[:username])
-    @username = @user.username
-    # require 'pry'; binding.pry
+    @username = params[:username]
   end
+
+  # def show
+  # end
 end

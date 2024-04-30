@@ -4,7 +4,8 @@ RSpec.describe 'User Shopping Index Page', type: :feature do
   describe 'user/shopping index page' do 
     before :each do
       @user = User.create!(username: "test", email: "fakeemail@email.com", password: "test", permission: 0, discount_level: 0)
-      visit user_shopping_index_path
+      @username = @user.username
+      visit "user/shopping"
     end
 
     it 'displays navbar' do
@@ -16,7 +17,7 @@ RSpec.describe 'User Shopping Index Page', type: :feature do
 
     it 'has display text' do
       expect(page).to have_content("Shopping Page")
-      expect(page).to have_content("Welcome, #{@user.username}, checkout what our store has to offer for you today!")
+      expect(page).to have_content("Welcome, #{@username}, checkout what our store has to offer for you today!")
     end
   end
 end

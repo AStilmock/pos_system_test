@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: "landing#index"
-  resources :user
-  get 'login' => 'user_sessions#new', :as => :login
+  # post "/user", to: "user#create"
+  resources :user, only: [:new, :create]
+  get 'login' => 'sessions#new', :as => :login
   post 'login' => "user_sessions#create"
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  # post 'logout' => 'user_sessions#destroy', :as => :logout
   # get 'user_sessions/new'
   # get 'user_sessions/create'
   # get 'user_sessions/destroy'

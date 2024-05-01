@@ -108,14 +108,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_30_195949) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false 
-    t.string "email"
+    t.string "username"
+    t.string "email", null: false
     t.integer "permission"
     t.integer "discount_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "crypted_password"
     t.string "salt"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "vendors", force: :cascade do |t|

@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
     username { Faker::Internet.username }
     email { Faker::Internet.email }
-    password_digest { "test" }
+    crypted_password { "testpassword9!" }
     permission { 1 }
     discount_level { 1 }
   end

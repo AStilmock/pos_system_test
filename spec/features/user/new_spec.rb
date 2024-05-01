@@ -27,7 +27,7 @@ RSpec.describe 'Website New Login Page', type: :feature do
       fill_in "password", with: "fakepassword1!"
       fill_in "confirm_password", with: "fakepassword1!"
       click_button "Create User"
-      expect(current_path).to eq user_shopping_index_path
+      expect(current_path).to eq user_shopping_path
     end
   end
 end

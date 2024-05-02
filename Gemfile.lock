@@ -117,10 +117,10 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
-    irb (1.12.0)
-      rdoc
+    irb (1.13.0)
+      rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.11.5)
+    jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jsonapi-serializer (2.2.0)
@@ -144,7 +144,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
-    multi_xml (0.7.0)
+    multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     net-http (0.4.1)
       uri
@@ -186,7 +186,7 @@ GEM
     orderly (0.1.1)
       capybara (>= 1.1)
       rspec (>= 2.14)
-    pg (1.5.4)
+    pg (1.5.6)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -231,7 +231,7 @@ GEM
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.5.2)
+    reline (0.5.4)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec (3.13.0)
@@ -256,7 +256,7 @@ GEM
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
     rubyzip (2.3.2)
-    selenium-webdriver (4.19.0)
+    selenium-webdriver (4.20.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -318,6 +318,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   capybara
   debug

@@ -26,6 +26,11 @@ RSpec.describe 'Website Landing Page', type: :feature do
       expect(current_path).to eq login_path
     end
 
+    it 'clicks link to login' do
+      click_link("Register")
+      expect(current_path).to eq new_user_path
+    end
+
     it 'has website info text on page' do
       expect(page).to have_content("This is a test website for a point of sale system.")
       expect(page).to have_content("All sales are final, and all merchandise is fake.")

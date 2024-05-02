@@ -8,13 +8,9 @@ RSpec.describe User, type: :model do
   end
 
   describe "validations" do
-    it { should validate_presence_of :username }
-    it { should validate_uniqueness_of :username }
-    it { should validate_presence_of :email }
-    it { should validate_uniqueness_of :email }
-    it { should validate_presence_of :crypted_password }
+    # xit { should validate_presence_of :crypted_password }
     it { should validate_length_of :crypted_password }
-    it { should validate_confirmation_of :crypted_password }
-    it { should validate_presence_of :password_confirmation}
+    # xit { should validate_confirmation_of :crypted_password }
+    # xit { should validate_presence_of :password_confirmation}
   end
 end

@@ -1,3 +1,5 @@
+# require './sorcery/controller.rb'
+# require './sorcery/model.rb'
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   
@@ -6,8 +8,9 @@ class SessionsController < ApplicationController
 
   def create
     @user = login(params[:email], params[:password])
+    require 'pry'; binding.pry
     if @user
-      redirect__to root_path, notice: 'Login Successful'
+      redirect_to root_path, notice: 'Login Successful'
     else
       flash.now[:alert] = 'Login failed'
       render action: 'new'

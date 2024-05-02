@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # post "/user", to: "user#create"
   resources :user, only: [:new, :create]
   get 'login' => 'sessions#new', :as => :login
-  post 'login' => "user_sessions#create"
-  # post 'logout' => 'user_sessions#destroy', :as => :logout
+  post 'login' => 'sessions#create'
+  post 'logout' => 'sessions#destroy', :as => :logout
   # get 'user_sessions/new'
   # get 'user_sessions/create'
   # get 'user_sessions/destroy'
